@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MateKids · Matemáticas para primaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo-wrap"><img class="logo-img" src="logo.jpeg" alt="MateKids"></h1>
+  <p>¡Practica matemáticas, acepta desafíos y gana estrellas!</p>
+</header>
+
+<main>
+  <!-- Pantalla 0: inicio de sesión -->
+  <section id="login" class="tarjeta">
+    <h2 class="grande" style="font-size:1.8rem;margin-bottom:14px">¡Hola! ¿Quién va a jugar?</h2>
+    <div class="campo-grupo">
+      <label for="loginNombre">Tu nombre</label>
+      <input class="campo" id="loginNombre" type="text" maxlength="20" autocomplete="off">
+    </div>
+    <div class="campo-grupo">
+      <label for="loginPassword">Tu contraseña</label>
+      <input class="campo" id="loginPassword" type="password" maxlength="40" autocomplete="current-password">
+      <p class="ayuda">Mínimo 4 caracteres. Si eres nuevo, elige una que recuerdes.</p>
+    </div>
+    <div class="aviso-login" id="loginMsg" role="alert"></div>
+    <button class="principal" id="loginEntrar">Entrar</button>
+    <button class="secundario" id="loginCrear">Crear mi cuenta</button>
+    <button class="secundario" id="loginInvitado">Jugar sin cuenta</button>
+    <p class="ayuda" style="margin-top:14px">Con tu cuenta puedes entrar desde cualquier aparato.</p>
+  </section>
+
+  <!-- Pantalla 1: elegir -->
+  <section id="inicio" class="tarjeta oculto">
+    <div class="usuario">
+      <span id="saludo"></span>
+      <span class="acciones">
+        <button class="repasar" id="verNotas">📊 Mis notas</button>
+        <button class="repasar" id="salir">Salir</button>
+      </span>
+    </div>
+    <div class="grupo">
+      <h2>¿En qué grado vas?</h2>
+      <div class="opciones" id="niveles">
+        <button class="nivel" data-n="1" aria-pressed="true">1.º y 2.º</button>
+        <button class="nivel" data-n="2" aria-pressed="false">3.º y 4.º</button>
+        <button class="nivel" data-n="3" aria-pressed="false">5.º y 6.º</button>
+      </div>
+    </div>
+    <div class="grupo">
+      <h2>¿Cómo quieres jugar?</h2>
+      <div class="opciones" id="modos">
+        <button class="modo" data-m="aprender" aria-pressed="false">🧠 Aprender</button>
+        <button class="modo" data-m="practica" aria-pressed="true">📚 Práctica</button>
+        <button class="modo" data-m="relampago" aria-pressed="false">⚡ Relámpago</button>
+        <button class="modo" data-m="vidas" aria-pressed="false">❤️ Tres vidas</button>
+      </div>
+      <p class="desc" id="descModo"></p>
+    </div>
+    <div class="grupo" id="grupoTemas">
+      <h2>¿Qué quieres practicar?</h2>
+      <div class="opciones" id="operaciones"></div>
+    </div>
+    <button class="principal" id="empezar">¡Empezar!</button>
+  </section>
+
+  <!-- Pantalla 2: juego -->
+  <section id="juego" class="tarjeta oculto">
+    <div class="barra"><span id="numero"></span><button class="repasar" id="repasar">💡 Teoría</button><span id="puntos">⭐ 0</span></div>
+    <div class="progreso" id="progreso" aria-hidden="true"><div id="relleno"></div></div>
+    <p class="consigna" id="consigna"></p>
+    <div class="cuenta grande" id="cuenta"></div>
+    <div id="entrada">
+      <input class="respuesta" id="respuesta" type="text" inputmode="decimal" aria-label="Tu respuesta" autocomplete="off">
+    </div>
+    <div class="opciones-juego oculto" id="opcionesJuego"></div>
+    <div class="oculto" id="memeBox"></div>
+    <div class="mensaje" id="mensaje" role="status" aria-live="polite"></div>
+    <button class="principal" id="comprobar">Comprobar</button>
+  </section>
+
+  <!-- Pantalla 3: resultado -->
+  <section id="final" class="tarjeta final oculto">
+    <div class="estrellas" id="estrellas"></div>
+    <div class="grande" id="titulo"></div>
+    <div class="nota oculto" id="nota"></div>
+    <div id="memeFinal"></div>
+    <p id="resumen"></p>
+    <button class="principal" id="otra">Jugar otra vez</button>
+    <button class="secundario" id="verTeoria">💡 Ver teoría de este tema</button>
+    <button class="secundario" id="cambiar">Cambiar de tema</button>
+  </section>
+
+  <!-- Pantalla 5: mis notas -->
+  <section id="notas" class="tarjeta oculto">
+    <h2 class="grande" style="font-size:1.9rem;margin-bottom:12px">📊 Mis notas</h2>
+    <p class="resumen-notas" id="resumenNotas"></p>
+    <ul class="lista-notas" id="listaNotas"></ul>
+    <button class="principal" id="notasVolver">Volver</button>
+  </section>
+
+  <!-- Pantalla 4: teoría -->
+  <section id="teoria" class="tarjeta teoria oculto">
+    <h2 id="teoriaTitulo"></h2>
+    <div id="teoriaCuerpo"></div>
+    <button class="principal" id="teoPracticar">¡A practicar!</button>
+    <button class="secundario" id="teoVolver">Volver</button>
+  </section>
+</main>
+
+<footer>MateKids · Proyecto escolar CBTIS 258</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
